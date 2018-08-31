@@ -7,31 +7,50 @@ This application is a full stack Node.js/React application based on the tutorial
 The project directory structure is as follows:
 
 ```
-/
-	/react-client
-		/build
-		/node_modules
-		/public
-		/src
-			/actions
-			/components
-			/reducers
-			/utils
-			/validation
-	/rest-api-node
-		/models
-		/node_modules
-		/routes
+/react-client - React Web User Interface
+/rest-api-node - Rest API using Node.js & Express
+```
+
+# Components
+
+## React Web Application
+This application is a React application build initially using `create-react-app`.
+The application directory structure is as follows:
+
+```
+/react-client
+	/build
+	/node_modules
+	/public
+	/src
+		/actions
+		/components
+		/reducers
+		/utils
 		/validation
 ```
 
-# REST API Component
+### Building the application
+
+- `npm run build`- to build the application
+- `npm run docker:build` - to build the Docker image
+
+## Node REST API Component
+
+This project is an implementation of the REST API using Node.js and Express Web Server.
+The application directory structure is as follows:
+
+/rest-api-node
+	/models
+	/node_modules
+	/routes
+	/validation
 
 The API routes are defined in:
 
-- `api/posts.js`: Posts service
-- `api/profile.js`: Profile service
-- `api/users.js`: User account service
+- `/routes/api/posts.js`: Posts service
+- `/routes/api/profile.js`: Profile service
+- `/routes/api/users.js`: User account service
 
 **Posts:**
 
@@ -39,7 +58,7 @@ The API routes are defined in:
 - `GET /api/post/{id}` - Get a single post matching the specified id
 - `POST /api/posts` - Create a new post (authenticated)
 - `DELETE /api/posts/{id}` - Delete post (authenticated)
-- \*`POST api/posts/{id}/like` - Like to a post (authenticated)
+- `POST api/posts/{id}/like` - Like to a post (authenticated)
 - `POST api/posts/{id}/unlike` - Unlike a post
 - `POST api/posts/{id}/comments` - Add a comment to a post (authenticated)
 - `DELETE api/posts/{id}/comments/{comment_id}` - Delete a comment from a post
@@ -67,9 +86,20 @@ The API routes are defined in:
 
 - `GET /api/diag/info` - Get system information for the Rest Api server
 
-## Swagger / OpenAPI
+### Swagger/OpenAPI Definition
 
 There is a [Swagger definition file for the API](rest-api-node/swagger.json) and Swagger UI is also available, just use `/api-docs` as the URL, e.g. **http://localhost:5000/api-docs/**
+
+### Building the application
+
+- `npm run build`- to build the application
+- `npm run docker:build` - to build the Docker image
+
+
+### Deploying the application
+#### Docker
+
+`docker compose up`
 
 # Code of Conduct
 
