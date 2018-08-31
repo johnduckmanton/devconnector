@@ -1,0 +1,36 @@
+{
+  "name": "devconnector-rest-api",
+  "version": "1.0.0",
+  "description": "DevConnector Rest Api",
+  "main": "server.js",
+  "scripts": {
+    "clent-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ../react-client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix ../react-client",
+    "docker:build": "docker build -t devconnector-rest-api-node .",
+    "docker:run": "docker run -d --env-file env.production -p 5000:5000 devconnector-rest-api-node"
+  },
+  "author": "John Duckmanton",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "gravatar": "^1.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.5",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}

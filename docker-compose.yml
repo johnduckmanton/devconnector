@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  client:
+    image: ${DOCKER_ID_USER}/devconnector-react-client:latest
+    build:
+      context: .
+      dockerfile: react-client/Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: production
+      REACT_APP_API_URL: http://localhost:5000
+
+  rest-api:
+    image: ${DOCKER_ID_USER}devconnector-rest-api-node:latest
+    build:
+      context: .
+      dockerfile: rest-api-node/Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      NODE_ENV: production
